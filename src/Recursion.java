@@ -19,16 +19,37 @@ public class Recursion {
         if (list.size()<=1) return list;
         if (list.get(0).equals(list.get(1))){
             list.remove(0);
-           unique(list);
+            unique(list);
         }
         else unique(list.subList(1,list.size()));
        return list;
     }
     public static long fibonacci(int n) {
         // the base case
-        if (n < 2) return 1;
+        if (n <= 2) return 1;
         // the recursive step
         return fibonacci(n-1) + fibonacci(n-2);
+    }
+   private static long fibonacci1(int a, int b, int n) {
+        if(n == 0) return a;
+        else return fibonacci1(b, a+b, n-1);
+    }
+
+    public static long fibonacci2(int n) {
+        return fibonacci1(0,1,n);
+    }
+    public static int fibo(int n){
+        if(n <= 2){
+            return 1;
+        }
+        int fibo = 1;
+        int fiboPrev = 1;
+        for(int i = 1; i < n; ++i){
+            int temp = fibo;
+            fibo += fiboPrev;
+            fiboPrev = temp;
+        }
+        return fibo;
     }
     public static void main (String[] args) {
         List list = new ArrayList();
@@ -43,7 +64,9 @@ public class Recursion {
         list.add("f");
         System.out.println(list.toString());
         System.out.println(unique(list).toString());
-        System.out.println(fibonacci(45));
+        System.out.println(fibonacci2(30));
+        System.out.println(fibonacci(30));
+        System.out.println(fibo(30));
     }
 
 }
