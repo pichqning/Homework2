@@ -64,9 +64,9 @@ public class Recursion {
         list.add("f");
         System.out.println(list.toString());
         System.out.println(unique(list).toString());
-        System.out.println(fibonacci2(30));
-        System.out.println(fibonacci(30));
-        System.out.println(fibo(30));
+        System.out.println(fibonacci2(48));
+        System.out.println(fibonacci(48));
+        System.out.println(fibo(48));
     }
 
 }
